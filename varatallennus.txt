@@ -1,0 +1,201 @@
+
+import java.util.Scanner;
+public class Paaohjelma {
+
+    public static void main(String[] args) {
+        Peli peli = new Peli();
+        Scanner lukija = new Scanner(System.in);
+
+        Kayttoliittyma ui = new Kayttoliittyma(peli, lukija);
+        ui.kaynnista();
+    }
+}
+
+import java.util.ArrayList;
+
+public class Peli {
+
+    private ArrayList<String> sanalista;
+    private String arvattavaSana;
+    private int laskuri;
+
+    public Peli() {
+        this.sanalista = new ArrayList<>();
+        this.arvattavaSana = "";
+        this.laskuri = 0;
+    }
+
+    public void lisaa(String sana) {
+        this.sanalista.add(sana);
+    }
+
+    public void arvoSana() {
+        int i = (int) (Math.random() * this.sanalista.size());
+
+        this.arvattavaSana = this.sanalista.get(i);
+    }
+
+    public static void arvaa(String arvaus) {
+
+    }
+
+    public void sanaTahtina() {
+        String tahdet = new String(new char[this.arvattavaSana.length()]).replace("\0", "*");
+        System.out.println(tahdet);
+    }
+
+    public int getVaaratArvaukset() {
+        return laskuri;
+    }
+
+
+}
+
+import java.util.Scanner;
+
+public class Kayttoliittyma {
+    private Peli peli;
+    private Scanner lukija;
+
+    public Kayttoliittyma(Peli peli, Scanner lukija) {
+        this.peli = peli;
+        this.lukija = lukija;
+    }
+    public void kaynnista() {
+        while(true) {
+        System.out.println("Tervetuloa pelaamaan hirsipuupeliä!");
+        System.out.println("Komennot:");
+        System.out.println("lisaa - Lisää sanan");
+        System.out.println("sekoita - Sekoittaa sanat");
+        System.out.println("lopeta - Lopettaa pelin");
+        
+        String syote = lukija.nextLine();
+            if (syote.equals("lopeta")) {
+                System.out.println("Peli lopetettu.");
+                break;
+            }
+            if (syote.equals("lisaa")) {
+                System.out.println("Lisättävä sana:");
+                String lisattava = lukija.nextLine();
+                peli.lisaa(lisattava);
+            }
+            if (syote.equals("sekoita")) {
+                peli.arvoSana();
+            }
+        }
+    }
+}
+
+public class Tulosta {
+    private int laskuri;
+    private Peli peli;
+
+    public Tulosta (int laskuri){
+        this.laskuri = laskuri;
+    }
+
+public void tulosta(int laskuri){
+    peli.getVaaratArvaukset();
+    if (laskuri == 1){
+        System.out.println("Arvasit väärin! Yritä uudelleen!");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("__|__");
+    }
+    
+    if (laskuri == 2){
+        System.out.println("Arvasit väärin! Yritä uudelleen!");
+        System.out.println();
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("__|__");
+    }
+    if (laskuri == 3){
+        System.out.println("Arvasit väärin! Yritä uudelleen!");
+        System.out.println("  __________");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("__|__");
+    }
+    if (laskuri == 4){
+        System.out.println("Arvasit väärin! Yritä uudelleen!");
+        System.out.println("  __________");
+        System.out.println("  |        |");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("__|__");
+    }
+    if (laskuri == 5){
+        System.out.println("Arvasit väärin! Yritä uudelleen!");
+        System.out.println("  __________");
+        System.out.println("  |       _|_");
+        System.out.println("  |      |___|");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("  |  ");
+        System.out.println("__|__");
+    }
+    if (laskuri == 6){
+        System.out.println("Arvasit väärin! Yritä uudelleen!");
+        System.out.println("  __________");
+        System.out.println("  |       _|_");
+        System.out.println("  |      |___|");
+        System.out.println("  |        |");
+        System.out.println("  |        |");
+        System.out.println("  |        |");
+        System.out.println("  |  ");
+        System.out.println("__|__");
+    }
+    if (laskuri == 7){
+        System.out.println("Arvasit väärin! Yritä uudelleen!");
+        System.out.println("  __________");
+        System.out.println("  |       _|_");
+        System.out.println("  |      |___|");
+        System.out.println("  |       /||");
+        System.out.println("  |      / ||");
+        System.out.println("  |        |");
+        System.out.println("  |  ");
+        System.out.println("__|__");
+    }
+    if (laskuri == 8){
+        System.out.println("Arvasit väärin! Yritä uudelleen!");
+        System.out.println("  __________");
+        System.out.println("  |       _|_");
+        System.out.println("  |      |___|");
+        System.out.println("  |       /| \\");
+        System.out.println("  |      / |  \\");
+        System.out.println("  |        |");
+        System.out.println("  |       /");
+        System.out.println("__|__    /");
+    }
+    if (laskuri == 9){
+        System.out.println("Hävisit!");
+        System.out.println("  __________");
+        System.out.println("  |       _|_");
+        System.out.println("  |      |___|");
+        System.out.println("  |       /| \\");
+        System.out.println("  |      / |  \\");
+        System.out.println("  |        |");
+        System.out.println("  |       / \\");
+        System.out.println("  |      /   \\");
+        System.out.println("__|__");
+    }
+}
+}
