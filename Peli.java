@@ -70,5 +70,3 @@ public class Peli {
 }
 // Nice code bro
 // thanks bro
-//adawd
-//adwoamdowa
